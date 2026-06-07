@@ -6,7 +6,7 @@ async function getBotResponse(userQuestion){
     chatBot.scrollTop = chatBot.scrollHeight;
 
     try {
-        const backendURL = 'http://localhost:10000/api/chat';
+        const backendURL = 'http://aven-ai.onrender.com/api/chat';
 
         const response = await fetch(backendURL, {
             method: 'POST',
