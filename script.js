@@ -1,7 +1,7 @@
-// 1. DOM Elements - Make sure these IDs match your index.html exactly!
-const chatBot = document.getElementById('chat-box') || document.getElementById('chatBot') || document.querySelector('.chat-container');
-const sendBtn = document.getElementById('send-btn') || document.getElementById('sendBtn');
-const chatInput = document.getElementById('chat-input') || document.getElementById('chatInput');
+// 1. DOM Elements mapped perfectly to your exact HTML IDs
+const chatBot = document.getElementById('chatBox');
+const sendBtn = document.getElementById('sendBtn');
+const chatInput = document.getElementById('userInput');
 
 // 2. Add Event Listener to the Send Button
 if (sendBtn && chatInput) {
@@ -29,7 +29,7 @@ if (sendBtn && chatInput) {
 async function getBotResponse(userQuestion) {
     // Create the loading visual indicator
     const loadingDiv = document.createElement('div');
-    loadingDiv.classList.add('message', 'bot-message', 'loading-status');
+    loadingDiv.classList.add('message', 'bot-message');
     loadingDiv.innerText = "Consulting the gaming gods... 🧠🎮";
     
     if (chatBot) {
@@ -45,7 +45,7 @@ async function getBotResponse(userQuestion) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ message: userQuestion }) // Fixed property key to match backend requirement
+            body: JSON.stringify({ message: userQuestion })
         });
 
         const data = await response.json();
