@@ -1,4 +1,4 @@
-// 1. DOM Elements mapped perfectly to your exact HTML IDs
+// 1. DOM Elements mapped perfectly to your index.html IDs
 const chatBot = document.getElementById('chatBox');
 const sendBtn = document.getElementById('sendBtn');
 const chatInput = document.getElementById('userInput');
@@ -27,7 +27,7 @@ if (sendBtn && chatInput) {
 
 // 3. Main Function to Communicate with Render Backend Engine
 async function getBotResponse(userQuestion) {
-    // Create the loading visual indicator
+    // Create the loading visual indicator cleanly
     const loadingDiv = document.createElement('div');
     loadingDiv.classList.add('message', 'bot-message');
     loadingDiv.innerText = "Consulting the gaming gods... 🧠🎮";
@@ -55,11 +55,13 @@ async function getBotResponse(userQuestion) {
             loadingDiv.remove();
         }
 
-        // Check response data keys and append to UI
-        if (data.reply) {
+        // Check response data keys and append to UI safely
+        if (data && data.reply) {
             appendMessage(data.reply, 'bot-message');
-        } else if (data.response) {
+        } else if (data && data.response) {
             appendMessage(data.response, 'bot-message');
+        } else if (data && data.error) {
+            appendMessage(`Error: ${data.error}`, 'bot-message');
         } else {
             appendMessage("Hmm, I couldn't process a valid response. Try asking something else!", 'bot-message');
         }
