@@ -83,7 +83,7 @@ function appendMessage(text, className) {
     
     const msgElement = document.createElement('div');
     msgElement.classList.add('message', className);
-    msgElement.innerText = text;
+    msgElement.innerHTML = text;
     
     chatBot.appendChild(msgElement);
     chatBot.scrollTop = chatBot.scrollHeight; // Auto-scroll to latest message
