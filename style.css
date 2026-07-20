@@ -22,12 +22,16 @@
             height: 100vh;
             overflow: hidden;
         }
-
+/* Red Theme Variables for High Performance Mode */
+body.gpt-mode {
+    --accent-neon: #ff3333;
+    --accent-glow: rgba(255, 51, 51, 0.15);
+}
         /* --- DESKTOP SIDEBAR --- */
         .sidebar {
             width: 280px;
             background-color: var(--bg-darker);
-            border-right: 1px solid rgba(0, 242, 254, 0.1);
+            border-right: 1px solid var(--accent-neon);
             display: flex;
             flex-direction: column;
             padding: 20px;
@@ -103,12 +107,14 @@
         }
 
         .chat-header {
-            padding: 20px;
-            background-color: var(--bg-darker);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            display: flex;
-            align-items: center;
-        }
+    height: 90px; /* Forces a fixed container depth */
+    padding: 0 20px; /* Adjusts internal space horizontally */
+    background-color: var(--bg-darker);
+    border-bottom: 1px solid var(--accent-neon);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
         .bot-status {
             display: flex;
@@ -145,7 +151,7 @@
 
         .user-message {
             background-color: var(--accent-glow);
-            border: 1px solid rgba(0, 242, 254, 0.2);
+            border: 1px solid var(--accent-neon);
             color: var(--text-main);
             align-self: flex-end;
             border-bottom-right-radius: 2px;
@@ -163,7 +169,7 @@
         .input-area {
             padding: 20px;
             background-color: var(--bg-darker);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid var(--accent-neon);
         }
 
         .input-wrapper {
