@@ -307,3 +307,48 @@
                 padding: 4px 4px 4px 12px;
             }
         }
+/* ==========================================
+   AVEN ENGINE TOGGLE STYLES (v1.1)
+   ========================================== */
+
+/* Container layout below the status text */
+.engine-toggle {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+/* Base button styling to match your dark UI */
+.mode-btn {
+    background: #0d1117;
+    border: 1px solid #21262d;
+    color: #8b949e;
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+/* Hover state */
+.mode-btn:hover {
+    border-color: #30363d;
+    color: #c9d1d9;
+}
+
+/* Active Gemini Cyan Glow */
+#btn-gemini.active {
+    border-color: #00f2fe;
+    color: #fff;
+    background: rgba(0, 242, 254, 0.05);
+    box-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
+}
+
+/* Active ChatGPT Red Glow */
+#btn-gpt.active {
+    border-color: #ff3333;
+    color: #fff;
+    background: rgba(255, 51, 51, 0.05);
+    box-shadow: 0 0 10px rgba(255, 51, 51, 0.3);
+}
