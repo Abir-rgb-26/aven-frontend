@@ -21,24 +21,26 @@
             <div class="bot-status">
                 <div class="status-dot"></div>
                 <div>
-                <h4 style="font-weight: 600;">AVEN AI v1.1</h4>
-                <p style="font-size: 0.75rem; color: var(--text-muted);">Online & Ready</p>
-                
-                <!-- NEW: Toggle Buttons inserted right here -->
-                <div class="engine-toggle">
-                    <button id="btn-gemini" class="mode-btn active" onclick="setEngine('gemini')">Balanced</button>
-                    <button id="btn-gpt" class="mode-btn" onclick="setEngine('gpt')">High Performance</button>
+                    <h4 style="font-weight: 600;">AVEN AI v1.1</h4>
+                    <p style="font-size: 0.75rem; color: var(--text-muted);">Online & Ready</p>
+                    
+                    <!-- Engine Toggle Buttons -->
+                    <div class="engine-toggle">
+                        <button id="btn-gemini" class="mode-btn active" onclick="setEngine('gemini')">Balanced</button>
+                        <button id="btn-gpt" class="mode-btn" onclick="setEngine('gpt')">High Performance</button>
+                    </div>
                 </div>
             </div>
-        </div>
+        </div> <!-- Fixed: Header closes here cleanly now -->
 
         <div class="messages-box" id="chatBox">
-            </div>
+            <!-- Messages will stream inside here -->
+        </div>
 
         <div class="input-area">
             <div class="input-wrapper">
                 <input type="text" id="userInput" placeholder="Ask for strategies, builds, or game meta...">
-                <button class="send-btn" id="sendBtn">Send</button>
+                <button class="send-btn" id="sendBtn">SEND</button>
             </div>
         </div>
     </div>
