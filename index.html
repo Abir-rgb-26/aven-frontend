@@ -9,7 +9,7 @@
 <body>
 
     <div class="sidebar">
-        <div class="brand">AVEN // AI</div>
+        <div class="brand">AVEN AI</div>
         <button class="new-chat-btn">+ NEW SESSION</button>
         <div class="history-section">
             <div class="history-title">Recent Intel</div>
@@ -21,8 +21,13 @@
             <div class="bot-status">
                 <div class="status-dot"></div>
                 <div>
-                    <h4 style="font-weight: 600;">AVEN AI v1.0.01</h4>
-                    <p style="font-size: 0.75rem; color: var(--text-muted);">Online & Ready</p>
+                <h4 style="font-weight: 600;">AVEN AI v1.1</h4>
+                <p style="font-size: 0.75rem; color: var(--text-muted);">Online & Ready</p>
+                
+                <!-- NEW: Toggle Buttons inserted right here -->
+                <div class="engine-toggle">
+                    <button id="btn-gemini" class="mode-btn active" onclick="setEngine('gemini')">Balanced</button>
+                    <button id="btn-gpt" class="mode-btn" onclick="setEngine('gpt')">High Performance</button>
                 </div>
             </div>
         </div>
