@@ -1,4 +1,18 @@
 // 1. DOM Elements mapped perfectly to your index.html IDs
+let currentEngine = 'gemini';
+
+function setEngine(engine) {
+    currentEngine = engine;
+    
+    document.getElementById('btn-gemini').classList.toggle('active', engine === 'gemini');
+    document.getElementById('btn-gpt').classList.toggle('active', engine === 'gpt');
+    
+    if (engine === 'gpt') {
+        document.body.classList.add('gpt-mode');
+    } else {
+        document.body.classList.remove('gpt-mode');
+    }
+}
 const chatBot = document.getElementById('chatBox');
 const sendBtn = document.getElementById('sendBtn');
 const chatInput = document.getElementById('userInput');
@@ -45,7 +59,7 @@ async function getBotResponse(userQuestion) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ message: userQuestion })
+            body: JSON.stringify({ message: userQuestion, engine: currentEngine })
         });
 
         const data = await response.json();
