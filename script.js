@@ -1,14 +1,23 @@
 // 1. DOM Elements mapped perfectly to your index.html IDs
-let currentEngine = 'gemini';
-
 function setEngine(engine) {
+    // If user clicks the already active engine, do nothing
+    if (currentEngine === engine) return;
+    
     currentEngine = engine;
+    
+    // Clear out the chat screen immediately so old messages disappear
+    const chatBox = document.getElementById('chatBox');
+    if (chatBox) chatBox.innerHTML = '';
     
     document.getElementById('btn-gemini').classList.toggle('active', engine === 'gemini');
     document.getElementById('btn-gpt').classList.toggle('active', engine === 'gpt');
     
     if (engine === 'gpt') {
         document.body.classList.add('gpt-mode');
+        
+        // Play the futuristic game-space ignition sound effect
+        performanceSFX.currentTime = 0; 
+        performanceSFX.play().catch(err => console.log("Audio playback blocked:", err));
     } else {
         document.body.classList.remove('gpt-mode');
     }
