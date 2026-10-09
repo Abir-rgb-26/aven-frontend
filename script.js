@@ -167,12 +167,12 @@ function showSubscriptionModal() {
     document.body.appendChild(modal);
 
     document.getElementById('activateTrialBtn').addEventListener('click', () => {
-        isSubscribed = true; 
-        document.body.removeChild(modal);
-        setEngine('gpt'); 
+        isSubscribed = true;
+        modal.remove();
+        setEngine('gpt');
     });
 
     document.getElementById('closeModalBtn').addEventListener('click', () => {
-        document.body.removeChild(modal);
+        modal.remove();
     });
 }
