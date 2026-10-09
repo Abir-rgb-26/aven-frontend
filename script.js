@@ -108,13 +108,19 @@ async function getBotResponse(userQuestion) {
 // 5. Helper Function to dynamically render elements to layout screen
 function appendMessage(text, className) {
     if (!chatBot) return;
-    
+
     const msgElement = document.createElement('div');
     msgElement.classList.add('message', className);
-    msgElement.innerText = text;
-    
+
+    // If the message contains standard HTML tags (like <a> links from systemInstruction), render as innerHTML
+    if (text.includes('<a href=') || text.includes('<b>')) {
+        msgElement.innerHTML = text;
+    } else {
+        msgElement.innerText = text;
+    }
+
     chatBot.appendChild(msgElement);
-    chatBot.scrollTop = chatBot.scrollHeight; // Auto-scroll to latest message
+    chatBot.scrollTop = chatBot.scrollHeight; 
 }
 
 // 6. Function to dynamically build and display your subscription tier layout
